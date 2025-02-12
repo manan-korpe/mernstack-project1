@@ -2,7 +2,7 @@ import CustomeError from "../middlewares/Error.js";
 import User from "../models/User.models.js";
 import asyncHandler from "../middlewares/asyncHandler.js";
 
-const Register= asyncHandler( async(req,res,next)=>{
+const Register = asyncHandler( async(req,res,next)=>{
         console.log("woking")
         const {name,lastname,email,password} = req.body;
 
@@ -56,6 +56,7 @@ const Logout=asyncHandler(async(req,res)=>{
 
     res.json({message:"logout"});
 })
+
 const Profile = asyncHandler(async (req,res)=>{
     const user = await User.findById({},{"name":"abc"});
     res.json({success:"success..!"});
