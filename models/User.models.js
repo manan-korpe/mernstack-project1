@@ -2,6 +2,21 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import jwtToken from "jsonwebtoken";
 
+const addressSchema = new mongoose.Schema({
+    street:{
+        type:String
+    },
+    city:{
+        type:String,
+    },
+    state:{
+        type:String,
+        enum:["Gujarat","Maharastra","Rajesthan"]
+    },
+    zipCode:{
+        type:Number,
+    }
+});
 const userSchema = new mongoose.Schema({
     name:{
         type:String,
@@ -16,6 +31,11 @@ const userSchema = new mongoose.Schema({
         required:true,
         min:8
     },
+    role:{
+        type:String,
+        default:"user",
+        enum:["user","admin"]
+    },
     phonenumber:{
         type:Number,
         match:/^[6-9]{1}[0-9]{9}$/
@@ -23,26 +43,13 @@ const userSchema = new mongoose.Schema({
     email:{
         type:String,
         required:true,
-        unique:true
+        unique:true,
+        immutable:true
     },
     avtar:{
         type:String,
     },
-    address:{
-        street:{
-            type:String
-        },
-        city:{
-            type:String,
-        },
-        state:{
-            type:String,
-            enum:["Gujarat","Maharastra","Rajesthan"]
-        },
-        zipCode:{
-            type:Number,
-        }
-    }
+    address:addressSchema
 },{timestamps: true});
 
 userSchema.pre("save",async function(next){
