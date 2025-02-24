@@ -21,9 +21,9 @@ if(!fs.existsSync("./public")){
 
 //middlewares
 app.use(express.static("public")) // for static file store and retrave
-app.use(cors({origin:"*",credentials:true})); // for cors origin fontEnd connection
+app.use(cors({origin:"http://localhost:5173",credentials:true})); // for cors origin fontEnd connection
 app.use(express.json());    //use for req data avilable  or visible
-// app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({extended:true}))
 app.use(CookieParser()); // for handle cookies
 
 //cloudinary configrate 

@@ -1,0 +1,6 @@
+.ani1{
+    transition-duration:.5s;
+}
+.ani1:hover{
+    transform:scale(1.02);
+}

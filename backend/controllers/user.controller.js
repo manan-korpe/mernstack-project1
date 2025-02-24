@@ -3,11 +3,11 @@ import Success from "../middlewares/success.js";
 import asyncHandler from "../middlewares/asyncHandler.js";
 import User from "../models/User.models.js";
 import Cart from "../models/Cart.model.js";
-
+import sendmail from "../config/mail.js"
 
 const Register = asyncHandler( async(req,res,next)=>{
         const {name,lastname,email,password} = req.body;
-
+        
         if(!name || !lastname || !email || !password){
             next(new CustomeError("bad cradintal value sended",400));
         }
@@ -31,6 +31,12 @@ const Register = asyncHandler( async(req,res,next)=>{
         if(!user)
             return next(new CustomeError("semthing going wrong",400));
 
+        //email sending 
+        const message = `thanks ${user.name} fro register our website 
+        i hope your will find best product here........!
+        `
+        await sendmail(user.email,"registeration mail mernstack project",message);
+        //email sending end
         const Newcart = new Cart({userId:user});
         await Newcart.save();
         const cart = await Cart.findOne({userId:user._id});
@@ -65,7 +71,9 @@ const Login = asyncHandler( async (req,res,next)=>{
                 httpOnly:true
             })
     
-            res.json({success:true,message:"login successfuly"});
+            const cart = await Cart.findOne({userId:user._id});
+            
+            res.json(new Success("login successful",201,{user:user,cart:cart}));
 });
 
 const Logout=asyncHandler(async(req,res,next)=>{
@@ -79,11 +87,12 @@ const Profile = asyncHandler(async (req,res,next)=>{
         return next(new CustomeError("something going wrong",401));
 
     const user = await User.findById(req.user.id).select("-password -role -_id");
-
+    const address = user.getAddress();
+    console.log(user.getAddress())
     if(!user)
         return next(new CustomeError("something going wrong",401));
 
-    res.json(new Success("profile founded",201,user));
+    res.json(new Success("profile founded",201,{user:user,address:address}));
 });
 
 const updateProfile = asyncHandler(async (req,res,next)=>{

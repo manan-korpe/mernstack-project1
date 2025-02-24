@@ -71,6 +71,9 @@ userSchema.methods.generateToken = function(){
     });
     return token;
 }
-
+userSchema.methods.getAddress = function(){
+    const address = this.address
+    return `${address.street}, ${address.city}, ${address.state}-${address.zipCode}`;
+}
 const User = mongoose.model("User",userSchema);
 export default User;
