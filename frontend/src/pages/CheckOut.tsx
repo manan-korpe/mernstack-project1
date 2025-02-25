@@ -1,8 +1,9 @@
-import CardSummery from "../component/cartSummery.tsx";
-import {useState,useCallback} from "react";
-import nullvalidation from "../validations/nullValidation.ts";
-import {charValidation, telValidation, emailValidation} from "../validations/multiValidations.ts";
+import CardSummery from "../components/cartSummery.tsx";
+import {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import nullvalidation from "../utils/validations/nullValidation.ts";
+import {charValidation, telValidation, emailValidation} from "../utils/validations/multiValidations.ts";
+
 
 type shipping={
     fname:string,
@@ -12,6 +13,7 @@ type shipping={
     phone:string,
     payment:string
 }
+
 type err= Partial<shipping>
 
 function CheckOut(){

@@ -1,5 +1,5 @@
 import "../assets/blog.css";
-import BlogCart from "../component/BlogCart.tsx";
+import BlogCart from "../components/BlogCart.tsx";
 
 function Blog(){
     return (

@@ -2,7 +2,7 @@ import i2 from "../assets/s2.png"
 import i3 from "../assets/s3.png";
 import i1 from "../assets/s1.png";
 
-import Comment from "../component/Comment.tsx";
+import Comment from "../components/Comment.tsx";
 import {useState} from "react";
 
 function ProductDetails(){

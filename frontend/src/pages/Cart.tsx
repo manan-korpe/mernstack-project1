@@ -1,5 +1,5 @@
-import Cart_product from "../component/cart_product.tsx"
-import CardSummery from "../component/cartSummery.tsx";
+import Cart_product from "../components/cart_product.tsx"
+import CardSummery from "../components/cartSummery.tsx";
 
 function Cart(){
     return(

@@ -1,7 +1,7 @@
 import {NavLink, Link} from "react-router-dom";
-import {useSelector} from "react-redux";
+// import {useSelector} from "react-redux";
 function Header(){
-    const {isAuthenticated} = useSelector(state=>state.auth);
+    // const {isAuthenticated} = useSelector(state=>state.auth);
     
     return(
         <>
@@ -17,17 +17,17 @@ function Header(){
                                 <NavLink className="nav-link test text-white active"  to="/">Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link text-white " to="/product">product</NavLink>
+                                <NavLink className="nav-link text-white " to="/products">product</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link text-white " to="blog">Blog</NavLink>
+                                <NavLink className="nav-link text-white " to="blogs">Blog</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link text-white  text-white" to="content">Contect</NavLink>
                             </li>
                         </ul>
                         <div>
-                        {isAuthenticated ?(
+                        {true ?(
                             <>
                                 <Link to="/profile" className="text-white ">
                                     <i className="fa-solid fa-user me-3"></i>

@@ -1,4 +1,4 @@
-import Cart from "../component/car.tsx";
+import Cart from "../components/car.tsx";
 
 function Product(){
     

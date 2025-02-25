@@ -1,7 +1,4 @@
 import { Link, Outlet } from "react-router-dom"
-import Productcart from "../component/car.tsx";
-import s1 from "../assets/s1.png";
-import {StarRatedComponent} from "../component/star.tsx";
 
 function Profile(){
     return(
@@ -15,21 +12,7 @@ function Profile(){
                         <Link to="/profile/ratting" className="text-white p-2 p-md-3 rounded  mb-4 bg-warning">Ratting</Link>
                     </div>
                 </div>
-
                 <Outlet/>
-
-                {/* liked product */}
-                {/* <div className="col-md-8 col-12 col-md-10 px-md-4 p-2">
-                    <div className="row">
-                    <Productcart/>
-                    <Productcart/>
-                    <Productcart/>
-                    <Productcart/>
-                    <Productcart/>
-                    <Productcart/>
-                    </div>
-                </div> */}
-                
             </section>
         </main>
     )

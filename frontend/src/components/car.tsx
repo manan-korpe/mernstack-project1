@@ -1,9 +1,10 @@
 import {useState} from "react"
 import product from "../assets/sproduct.png";
-import {StarRatedComponent} from "../component/star.tsx";
+import {StarRatedComponent} from "./star.tsx";
 
 function Cart(){
     const [ratting,setRatting] = useState<number>(4.5);
+    
     return(
         <div className="col col-5 col-lg-4 mb-4 ">
             <div className="cart shadow p-2 rounded">

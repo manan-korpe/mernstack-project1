@@ -1,4 +1,4 @@
-import {StarRatedComponent} from "../star.tsx";
+import {StarRatedComponent} from "../../components/star.tsx";
 import s1 from "../../assets/s1.png";
 
 export default function Ratting(){
