@@ -1,10 +1,11 @@
 import s1 from "../../assets/s1.png";
+
 // import {useSelector} from "react-redux";
 
 export default function Profile() {
   // const {user,address} = useSelector(state=>state.auth);
   return (
-    <div className="col-md-9 col-12 col-md-10  p-2">
+    <div className="p-2">
       <div className="row g-1 gap-3 align-items-start justify-content-evenly">
         <div className="col-12 col-md-6">
           <div className="card">

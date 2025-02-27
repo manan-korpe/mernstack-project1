@@ -1,25 +1,41 @@
 import product from "../assets/s1.png";
-import {useState} from "react";
+import { useState } from "react";
 
-function cart_product(){
-    const [qty,setQty] = useState<number>(1);
+function cart_product() {
+  const [qty, setQty] = useState<number>(1);
 
-    return (
-        <div className="row align-items-center  gap-4 mb-4 shadow p-2">
-            <img className="col-2 img-fluid rounded" src={product} alt="productIMAGE"  loading="lazy" style={{height:"5rem",width:"5rem"}}></img>
-            <div className="col-7 d-flex align-items-center justify-content-between  flex-wrap ms-2">
-                <div className="row align-items-center me-3">
-                    <h5 className="col-12 col-md-6" style={{fontSize:"1.2rem"}}>Name</h5>
-                    <h6 className="col-12 col-md-6">$202020</h6>
-                </div>
-                <div className="d-flex justify-content-between gap-3 ">
-                    <button onClick={()=>setQty(qty-1>0 ? qty-1:1)} className="btn btn-warning" style={{height:"100%",width:"40px"}}>-</button>
-                    <input type="number" className="form-control border-2 border-warning text-center" min="{1}" value={qty}style={{height:"100%",width:"50px"}}></input>
-                    <button onClick={()=>setQty(qty+1)} className="btn btn-warning" style={{height:"100%",width:"40px"}}>+</button>
-                </div>
+  return (
+    <tr >
+      <td>
+        <div className="card mb-2 border-0 shadow-sm">
+          <div className="row g-2 align-items-center justify-content-between">
+            <div className="col-4 col-sm-2 col-lg-2 align-self-stretch">
+              <img
+                className="w-100 h-100 object-fit-cover  rounded-start"
+                src={product}
+              ></img>
             </div>
-            
+            <div className="col-8 col-sm-4 col-md-5">
+              <div className="card-body text-capitalize">
+                <h5>productName</h5>
+                <div>$20000</div>
+                <small>qty:- <strong>2</strong></small>
+              </div>
+            </div>
+            <div className="col-12 col-sm-3 col-lg-5 ">
+              <div className="row p-2 gap-4 gap-lg-4 justify-content-center align-items-center">
+                <div className=" col col-lg-4 p-0 btn-group">
+                  <button className="btn btn-primary">+</button>
+                  <input className="form-control rounded-0"></input>
+                  <button className="btn btn-primary">-</button>
+                </div>
+                <div className="col col-lg-5 text-center btn btn-danger">Remove</div>
+              </div>
+            </div>
+          </div>
         </div>
-    )
+      </td>
+    </tr>
+  );
 }
-export default cart_product
+export default cart_product;

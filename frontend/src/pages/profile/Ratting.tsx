@@ -3,8 +3,7 @@ import s1 from "../../assets/s1.png";
 
 export default function Ratting(){
     return (
-        <div className="col-md-8 col-12 col-md-10 px-md-4 p-2">
-                    <h3>Rated Products</h3>
+        <div className=" px-md-4 p-2">
                     <div className="mt-4 p-4 shadow rounded">
                         <div className="row ">
                                     <div className="col-3" style={{height:"5rem",width:"5rem"}}>

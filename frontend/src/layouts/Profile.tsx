@@ -1,39 +1,28 @@
+import Loader from "../components/Loader.tsx";
 import { Link, Outlet } from "react-router-dom";
 import { Suspense } from "react";
+import {useLocation} from "react-router-dom";
 
 function Profile() {
+  const location = useLocation();
   return (
-    <main className="container-fluid px-4">
-      <section className="row g-3 justify-content-evenly">
-        <div className="col-md-2 bg-primary  shadow-sm p-2 rounded">
-          <div className="d-flex flex-column py-3">
-            <Link
-              to="/profile/"
-              className="text-white p-2 p-md-3 rounded  mb-4 bg-warning"
-            >
-              Profile
-            </Link>
-            <Link
-              to="/profile/order"
-              className="text-white p-2 p-md-3 rounded  mb-4 bg-warning"
-            >
-              Orders
-            </Link>
-            <Link
-              to=""
-              className="text-white p-2 p-md-3 rounded  mb-4 bg-warning"
-            >
-              Liked
-            </Link>
-            <Link
-              to="/profile/ratting"
-              className="text-white p-2 p-md-3 rounded  mb-4 bg-warning"
-            >
-              Ratting
-            </Link>
-          </div>
-        </div>
-        <Suspense fallback="loading...">
+    <main className="container-fluid ">
+      <section>
+          <ul className="nav nav-tabs nav-fill mb-2">
+            <li className="nav-item  ">
+              <Link className={`nav-link ${location.pathname == "/profile" ? "active" : ""}`}  to="/profile">Profile</Link>
+            </li>
+            <li className="nav-item">
+              <Link className={`nav-link ${location.pathname == "/profile/order" ? "active" : ""}`}   to="order">Orders</Link>
+            </li>
+            <li className="nav-item">
+              <Link className={`nav-link ${location.pathname == "/profile/liked" ? "active" : ""}`}   to="liked">Liked</Link>
+            </li>
+            <li className="nav-item">
+              <Link className={`nav-link ${location.pathname == "/profile/ratting" ? "active" : ""}`}   to="ratting">Rating</Link>
+            </li>
+          </ul>
+        <Suspense fallback={<Loader/>}>
           <Outlet />
         </Suspense>
       </section>
